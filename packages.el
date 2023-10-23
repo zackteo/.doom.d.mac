@@ -65,3 +65,7 @@
 (package! lsp-treemacs)
 
 (package! aggressive-indent)
+
+(package! chatgpt-shell :recipe (:host github :repo "xenodium/chatgpt-shell" :branch "main"))
+
+(package! copilot :recipe (:host github :repo "zerolfx/copilot.el" :branch "main"))

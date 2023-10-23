@@ -17,6 +17,43 @@
 ;; You can also try 'gd' (or 'C-c g d') to jump to their definition and see how
 ;; they are implemented.
 
+(defun cae-copilot-clear-overlay-h ()
+  "Like 'copilot-clear-overlay', but returns 't' if the overlay was visible."
+  (when (copilot--overlay-visible)
+    (copilot-clear-overlay) t))
+(add-hook 'doom-escape-hook #'cae-copilot-clear-overlay-h)
+
+;; Based on function from https://reobert.kra.hn/posts/2023-02-22-copilot-emacs-setup/
+(defun copilot-complete-or-accept ()
+  "Command that either triggers a completion or accepts one if one
+is available"
+  (interactive)
+  (if (copilot--overlay-visible)
+      (progn
+        (copilot-accept-completion))
+    (copilot-complete)))
+
+(use-package! copilot
+  :config (global-copilot-mode)
+  :bind (:map copilot-completion-map
+         ("<tab>" . 'copilot-accept-completion)
+         ("TAB" . 'copilot-accept-completion)
+         :map copilot-mode-map
+         ("C-<down>" . #'copilot-next-completion)
+         ("C-<up>" . #'copilot-previous-completion)
+         ("C-<right>" . #'copilot-accept-completion-by-word)
+         ("C-M-<right>" . #'copilot-accept-completion-by-line)))
+
+(global-set-key (kbd "C-<return>") #'copilot-complete-or-accept)
+
+(setq woman-manpath '("/usr/share/man" "/usr/local/share/man"))
+
+(setq chatgpt-shell-openai-key "")
+(setq dall-e-shell-openai-key "")
+
+(global-set-key (kbd "C-M-<left>") 'previous-buffer)
+(global-set-key (kbd "C-M-<right>") 'next-buffer)
+
 (defun set-exec-path-from-shell-PATH ()
   "Set up Emacs' `exec-path' and PATH environment variable to match
 that used by the user's shell.
@@ -135,7 +172,7 @@ If this variable is not set through Customize, you must call
 ;; To consider removing
 (use-package! swiper
   :bind ("C-s" . swiper)
-        ("C-r" . swiper))
+  ("C-r" . swiper))
 
 (use-package! undo-fu
   :bind ("C-?" . undo-fu-only-redo))
