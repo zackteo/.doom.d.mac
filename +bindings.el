@@ -46,6 +46,22 @@
 
 ;; (global-set-key (kbd "C-<return>") #'copilot-complete-or-accept)
 
+;; (after! poetry
+;;   (remove-hook 'python-mode-hook #'poetry-tracking-mode)
+;;   (remove-hook 'python-mode-hook #'poetry-track-virtualenv))
+
+;; emacs-libvterm/CMakelist.txt
+;;  ExternalProject_add (libvterm
+;;   #GIT_REPOSITORY https://github.com/neovim/libvterm.git
+;;   #GIT_TAG 54c03b21f76fa775a4c0643a9d8326342873179
+;;   SOURCE_DIR "/Users/zacharyteowj/Desktop/libvterm-mirror"
+;;   CONFIGURE_COMMAND ""
+;;   BUILD_COMMAND ${LIBVTERM_BUILD_COMMAND} "CFLAGS='-fPIC"
+;;   BUILD_IN_SOURCE ON
+;;   INSTALL_COMMAND "")
+
+(setq lsp-python-ms-executable "/Users/zacharyteowj/Library/Caches/pypoetry/virtualenvs/kiwi-krpUoyZr-py3.11/bin/pylsp")
+
 (setq woman-manpath '("/usr/share/man" "/usr/local/share/man"))
 
 (setq chatgpt-shell-openai-key "")
@@ -82,26 +98,26 @@ apps are not started from a shell."
 (set-exec-path-from-shell-PATH)
 
 ;; HACK from xref
-(defcustom xref-marker-ring-length 16
-  "Length of the xref marker ring.
-If this variable is not set through Customize, you must call
-`xref-set-marker-ring-length' for changes to take effect."
-  :type 'integer
-  :initialize #'custom-initialize-default
-  :set #'xref-set-marker-ring-length)
+;; (defcustom xref-marker-ring-length 16
+;;   "Length of the xref marker ring.
+;; If this variable is not set through Customize, you must call
+;; `xref-set-marker-ring-length' for changes to take effect."
+;;   :type 'integer
+;;   :initialize #'custom-initialize-default
+;;   :set #'xref-set-marker-ring-length)
 
-(defvar xref--marker-ring (make-ring xref-marker-ring-length)
-  "Ring of markers to implement the marker stack.")
+;; (defvar xref--marker-ring (make-ring xref-marker-ring-length)
+;;   "Ring of markers to implement the marker stack.")
 
-(setq doom-font-increment 1)
-(setq doom-big-font-increment 2)
+;; (setq doom-font-increment 1)
+;; (setq doom-big-font-increment 2)
 ;; (doom/increase-font-size 2)
 
 ;; MAC
-(when (eq system-type 'darwin)
-  (setq mac-option-modifier 'meta)
-  (setq mac-command-modifier 'control)
-  (setq mac-control-modifier 'super))
+;; (when (eq system-type 'darwin)
+;;   (setq mac-option-modifier 'meta)
+;;   (setq mac-command-modifier 'control)
+;;   (setq mac-control-modifier 'super))
 
 (setq +format-on-save-enabled-modes
       `(not emacs-lisp-mode sql-mode tex-mode latex-mode org-msg-edit-mode clojure-mode))
@@ -290,6 +306,7 @@ If this variable is not set through Customize, you must call
 
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
+
 
 ;; For more intense debugging
 
