@@ -70,5 +70,9 @@
 
 (package! copilot :recipe (:host github :repo "zerolfx/copilot.el" :branch "main"))
 
-;; TODO: bump version in doom emacs
-(package! lsp-java :pin "449673da7221a30f1b1756cedcc48b9a2b52a51e")
+(package! inheritenv)
+(package! eat :recipe (:host codeberg :repo "akib/emacs-eat" :branch "master"))
+(package! claude-code :recipe (:host github :repo "stevemolitor/claude-code.el" :branch "main"))
+
+(package! claude-code-ide
+  :recipe (:host github :repo "manzaltu/claude-code-ide.el"))
