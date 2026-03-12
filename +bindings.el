@@ -305,8 +305,7 @@ apps are not started from a shell."
 (require 'ob-clojure)
 
 (setq org-babel-clojure-backend 'cider)
-(require 'cider)
-
+;; (require 'cider)
 
 ;; For more intense debugging
 
