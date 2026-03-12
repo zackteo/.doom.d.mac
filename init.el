@@ -57,7 +57,7 @@
        fold                ; (nigh) universal code folding
        (format +onsave)    ; automated prettiness
        ;;god               ; run Emacs commands without modifier keys
-       lispy ; vim for lisp, for people who don't like vim
+       lispy               ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
        ;;parinfer          ; turn lisp into python, sort of
@@ -93,22 +93,22 @@
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
        (lookup +docsets)   ; navigate your code and its documentation
-       lsp                 ; M-x vscode
+       (lsp +peek)         ; M-x vscode
        magit               ; a git porcelain for Emacs
-       ;;make              ; run make tasks from Emacs
+       make                ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
-       ;;pdf               ; pdf enhancements
-       ;;prodigy           ; FIXME managing external services & code builders
+       pdf                 ; pdf enhancements
+       prodigy             ; FIXME managing external services & code builders
        rgb                 ; creating color strings
-       ;;taskrunner        ; taskrunner for all your projects
+       taskrunner          ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
-       ;;upload            ; map local to remote projects via ssh/ftp
+       upload              ; map local to remote projects via ssh/ftp
 
        :os
        macos ;;(:if IS-MAC macos)  ; improve compatibility with macOS
        tty                 ; improve the terminal Emacs experience
-
+       ;; must copy org-mac-link
        :lang
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
@@ -118,12 +118,12 @@
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
-       data              ; config/data formats
+       data                ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
        ;;dhall
        ;;elixir            ; erlang done right
        ;;elm               ; care for a cup of TEA?
-       emacs-lisp                       ; drown in parentheses
+       emacs-lisp          ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
        ;;factor
@@ -152,11 +152,15 @@
        ;;php               ; perl's insecure younger brother
        plantuml            ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       python              ; beautiful is better than ugly
+       (python             ; beautiful is better than ugly
+        ;; +conda
+        +lsp
+        +poetry
+        +pyenv)
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
-       ;;rest              ; Emacs as a REST client
+       (rest +jq)          ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()

@@ -69,3 +69,6 @@
 (package! chatgpt-shell :recipe (:host github :repo "xenodium/chatgpt-shell" :branch "main"))
 
 (package! copilot :recipe (:host github :repo "zerolfx/copilot.el" :branch "main"))
+
+;; TODO: bump version in doom emacs
+(package! lsp-java :pin "449673da7221a30f1b1756cedcc48b9a2b52a51e")
