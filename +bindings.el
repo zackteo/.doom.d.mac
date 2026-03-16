@@ -56,9 +56,13 @@
 ;;   #GIT_TAG 54c03b21f76fa775a4c0643a9d8326342873179
 ;;   SOURCE_DIR "/Users/zacharyteowj/Desktop/libvterm-mirror"
 ;;   CONFIGURE_COMMAND ""
-;;   BUILD_COMMAND ${LIBVTERM_BUILD_COMMAND} "CFLAGS='-fPIC"
+;;   BUILD_COMMAND ${LIBVTERM_BUILD_COMMAND} "CFLAGS='-fPIC'" "LDFLAGS='-static'"
 ;;   BUILD_IN_SOURCE ON
 ;;   INSTALL_COMMAND "")
+;; [100%] Linking C shared module /Users/user/.config/emacs/.local/straight/build-30.2/vterm/vterm-module.so
+;; [100%] Built target vterm-module
+;; /Users/user/.config/emacs/.local/straight/build-30.2/vterm
+
 
 (setq lsp-python-ms-executable "/Users/zacharyteowj/Library/Caches/pypoetry/virtualenvs/kiwi-krpUoyZr-py3.11/bin/pylsp")
 
@@ -306,6 +310,11 @@ apps are not started from a shell."
 
 (setq org-babel-clojure-backend 'cider)
 ;; (require 'cider)
+
+
+(require 'acp)
+(require 'agent-shell)
+
 
 ;; For more intense debugging
 
